@@ -35,7 +35,7 @@ public class AdditionTest {
     // not assert equal
     @Test
     public void _wrong_testNewlineSeparator() {
-        assertNotEquals("4", Addition.add("0\n1,2,3"));
+        assertNotEquals("8", Addition.add("0\n1,2,3"));
     }
 
     @Test
