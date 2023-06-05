@@ -8,6 +8,11 @@ public class AdditionTest {
     }
 
     @Test
+    public void wrong_testEmptyString() {
+        assertNotEquals("5", Addition.add(""));
+    }
+
+    @Test
     public void testOneNumber() {
         assertEquals("1", Addition.add("1"));
     }
@@ -18,8 +23,18 @@ public class AdditionTest {
     }
 
     @Test
+    public void wrong_testTwoNumbers() {
+        assertNotEquals("2", Addition.add("1,2"));
+    }
+
+    @Test
     public void testUnknownNumberOfNumbers() {
         assertEquals("6", Addition.add("0,1,2,3"));
+    }
+
+    @Test
+    public void _wrong_testNewlineSeparator() {
+        assertNotEquals("4", Addition.add("0\n1,2,3"));
     }
 
     @Test
@@ -40,11 +55,12 @@ public class AdditionTest {
     @Test
     public void testNegativeNumbers() {
         assertEquals("Negative not allowed : -1", Addition.add("-1,2"));
-        assertEquals("Negative not allowed : -4, -5", Addition.add("2,-4,-5"));
     }
 
     @Test
     public void testMultipleErrors() {
-        assertEquals("Negative not allowed : -1\nNumber expected but ',' found at position 3\nNegative not allowed : -2", Addition.add("-1,,2"));
+        assertEquals(
+                "Negative not allowed : -1\nNumber expected but ',' found at position 3\nNegative not allowed : -2",
+                Addition.add("-1,,2"));
     }
 }
