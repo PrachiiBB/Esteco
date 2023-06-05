@@ -12,25 +12,22 @@
 // 6) custom separators [//[delimiter]\n inputs]  allowed---//;\n1;2;3 notallowed-- //;\n1;2,2 or //;\n1;2\n2
 // 7)negative number not allowed  "-1,2"=Negative not allowed : -1
 // 8)(err) multiple errors --"-1,,-1"= -ve 1 not allowed \n "," founeded \n -ve 2 not allowed 
- 
 
 public class AdditionProgram {
     public static String addNumbers(String input) {
 
-        //if out inpput is a empty string [CONDITION--- 2]
+        // if out inpput is a empty string [CONDITION--- 2]
         if (input.isEmpty()) {
             return "0";
         }
 
-//custom separator [CONDITION---6]
+        // custom separator [CONDITION---6]
         String separator = ",";
         if (input.startsWith("//")) {
             int separatorIndex = input.indexOf("//") + 2;
             separator = input.substring(separatorIndex, separatorIndex + 1);
             input = input.substring(input.indexOf("\n") + 1);
         }
-
-        
 
         String[] numberArray = input.split("[,\n]");
         StringBuilder result = new StringBuilder();
