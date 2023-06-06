@@ -1,4 +1,4 @@
-public class MultiplicationProgram {
+public class Multiplication {
     public static String multiplyNumbers(String input) {
         if (input.isEmpty()) {
             return "0";
